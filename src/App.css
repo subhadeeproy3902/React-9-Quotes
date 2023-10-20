@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.heading{
+  color: #fff;
+  padding-bottom: 1rem;
+}
+

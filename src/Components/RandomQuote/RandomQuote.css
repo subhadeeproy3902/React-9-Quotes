@@ -1,0 +1,106 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  background: rgba(236, 140, 255, 0.251);
+box-shadow: 0 8px 32px 0 rgba(251, 55, 254, 0.452);
+backdrop-filter: blur( 11.5px );
+-webkit-backdrop-filter: blur( 11.5px );
+border-radius: 15px;
+border: 1px solid rgba(255, 255, 255, 0.295);
+  width: 800px;
+}
+
+.quote {
+  padding: 60px 110px;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+}
+
+.line {
+  height: 1.5px;
+  background: white;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.reload {
+  cursor: pointer;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+}
+
+.reload:hover, .twitter:hover{
+  color: rgb(234, 38, 241);
+}
+
+.twitter {
+  cursor: pointer;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+}
+
+.author {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.icons {
+  display: flex;
+  gap: 30px;
+}
+
+/* Media Query for screens smaller than 800px */
+@media (max-width: 800px) {
+  .container {
+    width: 90%; /* Reduce container width for smaller screens */
+  }
+  .quote {
+    padding: 40px 80px; /* Adjust padding for smaller screens */
+  }
+  .line {
+    width: 100%; /* Adjust line width for smaller screens */
+  }
+}
+
+/* Media Query for screens smaller than 600px */
+@media (max-width: 600px) {
+  .container {
+    width: 95%; /* Further reduce container width for very small screens */
+  }
+  .quote {
+    padding: 30px 30px; /* Adjust padding for very small screens */
+    font-size: 28px; /* Reduce font size for very small screens */
+  }
+  .line {
+    width: 100%; /* Adjust line width for very small screens */
+  }
+  .bottom {
+    flex-direction: column; /* Change to column layout for very small screens */
+    text-align: center; /* Center-align text for very small screens */
+    margin: 20px 0; /* Reduce margin for very small screens */
+    gap: 1rem;
+  }
+}
+
+.lol{
+  width: 90%;
+}
+
+.xd{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
