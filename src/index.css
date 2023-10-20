@@ -22,4 +22,6 @@ footer{
   color: #fff;
   font-size: 20px;
   padding-bottom: 1rem;
+  position: absolute;
+  bottom: 4%;
 }
