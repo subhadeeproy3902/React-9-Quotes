@@ -15,7 +15,7 @@ border: 1px solid rgba(255, 255, 255, 0.295);
 .quote {
   padding: 60px 110px;
   color: white;
-  font-size: 32px;
+  font-size: 25px;
   text-align: center;
 }
 
@@ -81,7 +81,7 @@ border: 1px solid rgba(255, 255, 255, 0.295);
   }
   .quote {
     padding: 30px 30px; /* Adjust padding for very small screens */
-    font-size: 28px; /* Reduce font size for very small screens */
+    font-size: 21px; /* Reduce font size for very small screens */
   }
   .line {
     width: 100%; /* Adjust line width for very small screens */
