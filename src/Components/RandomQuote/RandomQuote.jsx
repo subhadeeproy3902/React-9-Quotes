@@ -6,8 +6,8 @@ import axios from 'axios';
 const RandomQuote = () => {
   const [error, setError] = useState(null);
   const [quote, setQuote] = useState({
-    quote: "",
-    author: "",
+    quote: "In this world, winning is everything. As long as I win in the end.That's all that matters.",
+    author: "Subhadeep Roy",
   });
   window.onload = () => {
     setQuote({
