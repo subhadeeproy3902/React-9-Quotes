@@ -25,8 +25,6 @@ const RandomQuote = () => {
         },
       });
       const newQuote = response.data[0];
-      console.log(newQuote)
-      console.log(newQuote.quote.length)
       if (newQuote.quote.length < 350) {
         setQuote(newQuote);
       } else {
