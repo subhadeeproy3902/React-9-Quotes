@@ -1,53 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,} from 'react';
 import './RandomQuote.css';
 import { BiRefresh, BiLogoTwitter } from 'react-icons/bi';
+import axios from 'axios';
 
 const RandomQuote = () => {
-  const [quote, setQuote] = useState(null);
   const [error, setError] = useState(null);
-  const [usedQuotes, setUsedQuotes] = useState([]);
+  const [quote, setQuote] = useState({
+    quote: "",
+    author: "",
+  });
+  window.onload = () => {
+    setQuote({
+      quote: "In this world, winning is everything. As long as I win in the end.That's all that matters.",
+      author: "Subhadeep Roy"
+    });
+  };
 
   const loadQuotes = async () => {
+    setQuote(null);
     try {
-      const response = await fetch('https://type.fit/api/quotes');
-      const quotes = await response.json();
-      let filteredQuotes = quotes.filter(
-        (quote) => !usedQuotes.includes(quote.text)
-      );
-
-      // If all quotes have been used, reset the usedQuotes list.
-      if (filteredQuotes.length === 0) {
-        setUsedQuotes([]);
-        filteredQuotes = quotes;
+      const response = await axios.get(`https://api.api-ninjas.com/v1/quotes`, {
+        headers: {
+          "X-Api-Key": "aMLk9jgL1bB2PQbiJOdshQ==uoNyjIo9ffl4XWTE",
+        },
+      });
+      const newQuote = response.data[0];
+      console.log(newQuote)
+      console.log(newQuote.quote.length)
+      if (newQuote.quote.length < 350) {
+        setQuote(newQuote);
+      } else {
+        loadQuotes();
       }
-
-      const select =
-        filteredQuotes[Math.floor(Math.random() * filteredQuotes.length)];
-
-      setQuote(select);
-
-      // Add the used quote to the usedQuotes list.
-      setUsedQuotes([...usedQuotes, select.text]);
-    } catch (err) {
-      console.error('Error loading quotes:', err);
-      setError('Failed to load quotes. Please try again later.');
+    } catch (error) {
+      setError("Failed to load Quotes");
     }
   };
 
-  const random = () => {
-    setQuote(null);
-    loadQuotes();
-  };
-
   const twitter = () => {
-    window.open(
-      `https://twitter.com/intent/tweet?text=${quote.text} - ${quote.author.split(',')[0]}`
-    );
+    if (quote) {
+      window.open(
+        `https://twitter.com/intent/tweet?text=${quote.quote} - ${quote.author}`
+      );
+    }
   };
-
-  useEffect(() => {
-    loadQuotes();
-  }, []);
 
   return (
     <div className="container">
@@ -57,13 +53,13 @@ const RandomQuote = () => {
         <div className="quote">{error}</div>
       ) : (
         <div className="xd">
-          <div className="quote">{quote.text}</div>
+          <div className="quote">{quote.quote}</div>
           <div className="lol">
             <div className="line"></div>
             <div className="bottom">
-              <div className="author">- {quote.author.split(',')[0]}</div>
+              <div className="author">- {quote.author}</div>
               <div className="icons">
-                <BiRefresh className="reload" onClick={random} />
+                <BiRefresh className="reload" onClick={loadQuotes} />
                 <BiLogoTwitter onClick={twitter} className="twitter" />
               </div>
             </div>
